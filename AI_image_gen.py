@@ -26,17 +26,21 @@ def save_image(image, path='Image-generator-stable-diffusion/Images'):
 def generate_and_display_image(prompt, label, num_steps, sampler, temperature, guidance_scale, width, height, super_resolution):
     def generate():
         global pil_image
+        # Set the number of inference steps for the model
+        # pipe.set_config(num_steps=num_steps, sampler=sampler, temperature=temperature, ...)
+        pipe.num_inference_steps = num_steps
+
         with torch.no_grad():
-            # Modify here to use the additional parameters
-            image = pipe(prompt=prompt).images[0]
+            image = pipe(prompt=prompt,num_inference_steps=num_steps).images[0]
         image = Image.fromarray(image) if not isinstance(image, Image.Image) else image
-        pil_image = image.copy()
-        tk_image = ImageTk.PhotoImage(image)
+        pil_image = image.resize((width, height))  # Resize the image
+        tk_image = ImageTk.PhotoImage(pil_image)
         label.config(image=tk_image)
+        label.image = tk_image  # Keep a reference
 
     threading.Thread(target=generate).start()
 
-def on_enter_pressed(event, label):
+def on_enter_pressed(event):
     prompt = text_input.get()
     num_steps = int(num_steps_input.get())
     sampler = sampler_input.get()
@@ -46,15 +50,17 @@ def on_enter_pressed(event, label):
     height = int(height_input.get())
     super_resolution = bool(super_resolution_var.get())
     generate_and_display_image(prompt, label, num_steps, sampler, temperature, guidance_scale, width, height, super_resolution)
+    
 
 model_id = "stabilityai/stable-diffusion-xl-base-1.0"
 pipe = StableDiffusionXLPipeline.from_pretrained(model_id, torch_dtype=torch.float16)
 pipe = pipe.to("cuda")
 
+
 style = Style(theme='darkly')
 root = style.master
 root.title("bhanuyash's Image Generator")
-root.geometry("800x600")  # Increased UI size
+root.geometry("1024x768")  # Increased UI size
 
 # Parameter frame
 param_frame = ttk.Frame(root)
@@ -126,7 +132,8 @@ def save_generated_image():
 save_button = ttk.Button(root, text="Save Image", command=save_generated_image)
 save_button.pack(pady=10)
 
-text_input.bind("<Return>", lambda event, lbl=label: on_enter_pressed(event, lbl))
+# Bind the event handler
+text_input.bind("<Return>", on_enter_pressed)
 
 text_widget = tk.Text(root, height=10)
 text_widget.pack(pady=10)
