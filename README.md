@@ -36,7 +36,7 @@ pipe.enable_model_cpu_offload()
 ## Demonstration
 A demo of how the generator works
 
-![Demo](https://imgur.com/a/nw3U0Yp)
+![Demo](https://i.imgur.com/89Yapc9.gif)
 
 ## Future Work
 I inted to make additions to this project, one thing I want to include is user training (mainly fine-tuning, few shot or seed image). Will see. 
