@@ -8,7 +8,7 @@ I built this image generation tool as a hobby project to showcase my coding skil
 - **Model Type**: Latent Diffusion Model
 - **License**: CreativeML Open RAIL++-M License
 - **Description**: Capable of generating and modifying images from text prompts.
-- **Resources**: [GitHub Repository](https://github.com/Stability-AI/generative-models), [SDXL Report on arXiv](https://arxiv.org/abs/2307.01952), , [Hugging Face repo](https://huggingface.co/stabilityai/stable-diffusion-xl-base-1.0)
+- **Resources**: [GitHub Repository](https://github.com/Stability-AI/generative-models), [SDXL Report on arXiv](https://arxiv.org/abs/2307.01952), [Hugging Face repo](https://huggingface.co/stabilityai/stable-diffusion-xl-base-1.0)
 
 ![Model Visualization](https://huggingface.co/stabilityai/stable-diffusion-xl-base-1.0/resolve/main/pipeline.png)
 
