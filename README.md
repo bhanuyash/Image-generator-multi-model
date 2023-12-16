@@ -35,6 +35,7 @@ pipe.enable_model_cpu_offload()
 
 ## Demonstration
 A demo of how the generator works
+
 ![Demo](https://imgur.com/a/nw3U0Yp)
 
 ## Future Work
