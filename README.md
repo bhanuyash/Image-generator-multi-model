@@ -32,5 +32,10 @@ I built this image generation tool as a hobby project to showcase my coding skil
 # Replace this line for CPU usage
 pipe.enable_model_cpu_offload()
 ```
+
+## Demonstration
+A demo of how the generator works
+![Demo](https://imgur.com/a/nw3U0Yp)
+
 ## Future Work
 I inted to make additions to this project, one thing I want to include is user training (mainly fine-tuning, few shot or seed image). Will see. 
