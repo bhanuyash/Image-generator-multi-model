@@ -10,12 +10,10 @@ This image generation tool is a personal project that showcases my coding abilit
 - **Description**: Capable of generating high-quality images from text prompts using various models.
 - **Resources**: 
   - [Stability AI GitHub](https://github.com/Stability-AI/generative-models)
-  - [SDXL Report on arXiv](https://arxiv.org/abs/2307.01952)
   - [Hugging Face SDXL repo](https://huggingface.co/stabilityai/stable-diffusion-xl-base-1.0)
   - [Hugging Face OpenDalle repo](https://huggingface.co/dataautogpt3/OpenDalleV1.1)
   - [Hugging Face Dreamshaper XL repo](https://huggingface.co/Lykon/dreamshaper-xl-turbo)
 
-![SDXL Model Visualization](https://huggingface.co/stabilityai/stable-diffusion-xl-base-1.0/resolve/main/pipeline.png)
 
 ## Updates
 - **2024-01-01**: Enhanced the tool to allow the selection of multiple models and samplers. Added functionality to use custom, checkpoint downloaded SDXL models.
